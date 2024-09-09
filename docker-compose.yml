@@ -3,7 +3,7 @@ services:
   #容器
   server:
     #容器名称
-    container_name: server
+    container_name: moneyserver
     build: .
     # 暴露 端口
     ports:
