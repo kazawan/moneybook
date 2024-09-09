@@ -1,0 +1,21 @@
+version: '1.1'
+services:
+  #容器
+  server:
+    #容器名称
+    container_name: server
+    build: .
+    # 暴露 端口
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    # 环境变量
+    # environment:
+    #   - PORTS: 3000
+    #   - JWT: ....
+    # 依赖其他项目 例如数据库要先运行
+    # depends_on:
+    #   - postgres
+    # 连接其他容器
+    # links:
+    #   - postgres
