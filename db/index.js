@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/My_money.db');
+const db = new sqlite3.Database('./db/mydb/My_money.db');
 const fs = require('fs');
-const db_path = './db/My_money.db';
+const db_path = './db/mydb/My_money.db';
 
 if (!fs.existsSync(db_path)) {
     db.serialize(function () {
@@ -16,6 +16,7 @@ if (!fs.existsSync(db_path)) {
         // 日
         // 时间
         // description 描述
+        // test
         
         db.run("CREATE TABLE incomes_expenses (id INTEGER PRIMARY KEY AUTOINCREMENT, type BOOLEAN, amount INTEGER, category TEXT, year INTEGER, month INTEGER, day INTEGER, time TEXT, description TEXT)");
         // 插入数据

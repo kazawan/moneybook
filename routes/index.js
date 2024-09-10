@@ -44,5 +44,29 @@ router.post('/insert', (req, res) => {
 });
 
 
+// 删除数据
+router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    db.run(`DELETE FROM incomes_expenses WHERE id = ?`, [id], function (err) {
+        if (err) {
+            res.status(400).json({ error: 'Error deleting data' });
+            return;
+        }
+        res.json({ id: id });
+    });
+});
+
+
+// 查找指定id
+router.get('/find/:id', (req, res) => {
+    const id = req.params.id;
+    db.get(`SELECT * FROM incomes_expenses WHERE id = ?`, [id], (err, row) => {
+        if (err) {
+            res.status(400).json({ error: 'Error retrieving data' });
+            return;
+        }
+        res.json(row);
+    });
+});
 
 module.exports = router;        
